@@ -1,11 +1,5 @@
 require 'sinatra'
-
-get '/:birthdate' do
-birthdate = params[:birthdate]
-birth_path_num = get_birthdate(birthdate)
-message = your_numerology(birth_path_num)
-"#{message}"
-end
+require 'rspec'
 
 def enter_dob
 	puts "Please enter your date of birth in the following format: MMDDYYYY"
@@ -38,11 +32,10 @@ def get_birthdate(number)
 end
 
 def your_numerology(number)
-	puts "Your numerology number is #{number}"
 
 	case number
 		when 1
-			message = "One is the leader. The number one indicates the ability to stand alone, and is a strong vibration. Ruled by the Sun."
+			message = "Your numerology number is #{number}. One is the leader. The number one indicates the ability to stand alone, and is a strong vibration. Ruled by the Sun."
 		when 2
 			message = "This is the mediator and peace-lover. The number two indicates the desire for harmony. It is a gentle, considerate, and sensitive vibration. Ruled by the Moon."
 		when 3
@@ -62,5 +55,12 @@ def your_numerology(number)
 		else
 			message = "Oh my days, you didn't enter a path number from 1-9!"
 	end
+end
+
+get '/:birthdate' do
+birthdate = params[:birthdate]
+birth_path_num = get_birthdate(birthdate)
+message = your_numerology(birth_path_num)
+"#{message}"
 end
 
