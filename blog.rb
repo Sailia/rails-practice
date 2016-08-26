@@ -21,8 +21,6 @@ class Blog
 
 end
 
-
-
 class BlogPost < Blog
 
 	attr_accessor :title, :content, :created_at
@@ -45,7 +43,11 @@ class BlogPost < Blog
 
 end
 
+my_hash1 = {:name => "Skylar", :goal => "I want to be, the very best that no one ever was", :obstacle => "To catch them is my real test, to train them is my cause"}
+
+my_hash2 = {name: "Skylar", goal: "I want to be, the very best that no one ever was", obstacle: "To catch them is my real test, to train them is my cause"}
+
 
 
 BlogPost.create
-Blog.display_posts # how to display the blogpost instance method information instead of the object id of BlogPost
+Blog.display_posts 
