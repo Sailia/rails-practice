@@ -47,6 +47,14 @@ def your_numerology(number)
 	end
 end
 
+get '/total_page' do
+	@total_messages = []
+	(1..9).each do |num|
+		@total_messages << your_numerology(num)
+	end
+	erb :total_page
+end
+
 get '/:birthdate' do
 birthdate = params[:birthdate]
 birth_path_num = get_birth_path_num(birthdate)
